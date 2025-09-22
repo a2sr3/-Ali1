@@ -15,5 +15,30 @@
     <!-- مثال HTML -->
 <button class="show-image-btn" onclick="document.getElementById('myImage').style.display='block'">عرض الصورة</button>
 <img id="myImage" src="imge/moh.jpg" alt="لم تظهر الصورة ">
+
+<style>
+    body {
+        background: linear-gradient(to bottom right, #87ceeb, #c71585);
+        margin: 0;
+        padding: 0;
+    }
+    .show-image-btn {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    #myImage {
+        display: none;
+        margin-top: 20px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+
 </body>
 </html>
