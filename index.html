@@ -12,10 +12,6 @@
     <hr>
 
 
-    <!-- مثال HTML -->
-<button class="show-image-btn" onclick="document.getElementById('myImage').style.display='block'">عرض الصورة</button>
-<img id="myImage" src="imge/moh.jpg" alt="لم تظهر الصورة ">
-
 <style>
     body {
         background: linear-gradient(to bottom right, #87ceeb, #c71585);
@@ -33,7 +29,7 @@
         align-items: center;
         gap: 15px;
     }
-    .show-image-btn, .hide-image-btn {
+    .show-image-btn, .hide-image-btn, .insta-btn {
         background-color: #000;
         color: #fff;
         border: none;
@@ -59,6 +55,14 @@
         display: block;
     }
 </style>
+<script>
+    function showInstagram() {
+        const link = prompt("ادخل رابط الانستا:");
+        if (link) {
+            window.open(link, "_blank");
+        }
+    }
+</script>
 <div class="container">
     <h1>اهلا وسهلا في موقعنا 🌸</h1>
     <button class="show-image-btn" onclick="document.getElementById('image-frame').style.display='block'">عرض الصورة</button>
@@ -68,5 +72,7 @@
     </div>
 </div></div>
 
+<p>هذا حساب الاسطورة حمودي:</p>
+<a href="https://www.instagram.com/fizex_x?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="color:#fff; background:#000; padding:8px 16px; border-radius:5px; text-decoration:none; display:inline-block;">اضغط هنا لزيارة الحساب</a>
 </body>
 </html>
