@@ -21,8 +21,19 @@
         background: linear-gradient(to bottom right, #87ceeb, #c71585);
         margin: 0;
         padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
-    .show-image-btn {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .show-image-btn, .hide-image-btn {
         background-color: #000;
         color: #fff;
         border: none;
@@ -30,15 +41,32 @@
         cursor: pointer;
         border-radius: 5px;
         font-size: 16px;
+        margin: 5px;
     }
-    #myImage {
+    #image-frame {
         display: none;
         margin-top: 20px;
-        max-width: 100%;
+        border: 3px solid #fff;
+        border-radius: 15px;
+        padding: 10px;
+        background: rgba(255,255,255,0.1);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    #myImage {
+        max-width: 300px;
         height: auto;
         border-radius: 10px;
+        display: block;
     }
 </style>
+<div class="container">
+    <h1>اهلا وسهلا في موقعنا 🌸</h1>
+    <button class="show-image-btn" onclick="document.getElementById('image-frame').style.display='block'">عرض الصورة</button>
+    <div id="image-frame">
+        <img id="myImage" src="imge/moh.jpg" alt="لم تظهر الصورة ">
+        <button class="hide-image-btn" onclick="document.getElementById('image-frame').style.display='none'">اخفاء الصورة</button>
+    </div>
+</div></div>
 
 </body>
 </html>
