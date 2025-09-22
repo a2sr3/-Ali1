@@ -1,0 +1,35 @@
+/* خلفية سماوية مع تدرج بنفسجي */
+body {
+    background: linear-gradient(135deg, #87ceeb 60%, #8e44ad 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* زر عرض الصورة */
+.show-image-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 40px auto;
+    display: block;
+}
+
+.show-image-btn:hover {
+    background-color: #333;
+}
+
+/* الصورة مخفية بالبداية */
+#myImage {
+    display: none;
+    margin: 30px auto;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    display: block;
+}
