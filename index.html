@@ -6,77 +6,144 @@
     <title> FirstProject</title>
 </head>
 <body>
-    <h1>اهلا وسهلا في موقعنا  🌸</h1>
-
     
+    <h1>اهلا وسهلا بك </h1>
+
+
     <hr>
 
-
-<style>
-    body {
-        background: linear-gradient(to bottom right, #87ceeb, #c71585);
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    .show-image-btn, .hide-image-btn, .insta-btn {
-        background-color: #000;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 16px;
-        margin: 5px;
-    }
-    #image-frame {
-        display: none;
-        margin-top: 20px;
-        border: 3px solid #fff;
-        border-radius: 15px;
-        padding: 10px;
-        background: rgba(255,255,255,0.1);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-    #myImage {
-        max-width: 300px;
-        height: auto;
-        border-radius: 10px;
-        display: block;
-    }
-</style>
-<script>
-    function showInstagram() {
-        const link = prompt("ادخل رابط الانستا:");
-        if (link) {
-            window.open(link, "_blank");
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
         }
-    }
-</script>
-<div class="container">
-    <h1>اهلا وسهلا في موقعنا 🌸</h1>
-    <button class="show-image-btn" onclick="document.getElementById('image-frame').style.display='block'">عرض الصورة</button>
-    <div id="image-frame">
-        <img id="myImage" src="" alt="لم تظهر الصورة ">
-        <button class="hide-image-btn" onclick="document.getElementById('image-frame').style.display='none'">اخفاء الصورة</button>
-    </div>
-</div></div>
-<div id="image-frame-2" style="display:none; margin-top:20px; border:3px solid #fff; border-radius:15px; padding:10px; background:rgba(255,255,255,0.1); box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-    <img id="myImage2" src="imge" alt="لم تظهر الصورة الثانية" style="max-width:300px; height:auto; border-radius:10px; display:block;">
-    <button class="hide-image-btn" onclick="document.getElementById('image-frame-2').style.display='none'">اخفاء الصورة الثانية</button>
-<button class="show-image-btn" onclick="window.location.href='secondpage.html'">اذهب للصفحة الثانية</button>
-<button class="show-image-btn" onclick="document.getElementById('image-frame-2').style.display='block'">عرض الصورة الثانية</button>
+        h1 {
+            text-align: center;
+            color: #4f46e5;
+            margin-top: 40px;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        form {
+            background: #fff;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(79,70,229,0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        label {
+            font-size: 1.1rem;
+            color: #6366f1;
+            margin-bottom: 8px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #c7d2fe;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            background: #f1f5f9;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4f46e5;
+            outline: none;
+            background: #eef2ff;
+        }
+        input[type="button"] {
+            background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(79,70,229,0.08);
+        }
+        input[type="button"]:hover {
+            background: linear-gradient(90deg, #818cf8 0%, #6366f1 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #6366f1;
+            margin: 24px auto;
+            width: 80%;
+        }
+        .error {
+            color: #dc2626;
+            background: #fee2e2;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            text-align: center;
+        }
+        </style>
+        <form id="loginForm" autocomplete="off">
+        <div id="errorMsg" class="error" style="display:none;"></div>
+        <script>
+            // منع إدخال الحروف العربية في اسم المستخدم
+            document.getElementById('user').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]+/g, '');
+            });
 
+            // التحقق من تعبئة جميع الحقول
+            document.querySelector('input[type="button"]').onclick = function() {
+            var user = document.getElementById('user').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var pass = document.getElementById('pass').value.trim();
+            var errorMsg = document.getElementById('errorMsg');
+            if (!user || !email || !pass) {
+                errorMsg.textContent = "يجب تعبئة جميع الحقول";
+                errorMsg.style.display = "block";
+            } else {
+                errorMsg.style.display = "none";
+                // يمكنك إضافة كود التحقق أو الانتقال هنا
+            }
+            };
+        </script>
+        <div>
+            <label for="user">ادخل اسم المستخدم</label>
+            <input type="text" id="user" placeholder="ادخل اسم المستخدم" required>
+        </div>
+
+        <div>
+            <label for="email">البريد الالكتروني</label>
+            <input type="email" id="email" placeholder="استعمل بريد الكتروني صالح" required>
+        </div>
+
+        <div>
+            <label for="pass">كلمة المرور</label>
+            <input type="password" id="pass" placeholder="ادخل كلمة مرور قوية" required>
+        </div>
+         
+        <div>
+            <input type="button" value="تسجيل الدخول">
+        </div>
+    </form>
+
+
+    <!-- ...existing code... -->
+<div style="text-align:center; margin-top: 20px;">
+    <a href="GetData.html">نسيت كلمة السر </a>
+</div>
+<!-- ...existing code... -->
+    <a href="GetData.html">نسيت كلمة السر </a>
+    
 
 </body>
 </html>
